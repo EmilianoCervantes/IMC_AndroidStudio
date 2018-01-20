@@ -35,6 +35,7 @@ public class ResultadosActivity extends Activity {
         } else {
             mujer = true;
         }
+        nombre.setText(p.nombre);
 
         calcular(p);
     }
@@ -60,7 +61,6 @@ public class ResultadosActivity extends Activity {
         double idealCalc = Math.pow(p.altura,2.0)*22;
         double energiaCalc = idealCalc * 30;
 
-        nombre.setText(p.nombre);
         imc.setText("Tu IMC es: "+String.valueOf(imcCalc));
         ideal.setText("Tu peso ideal es de: "+String.valueOf(idealCalc)+" kg");
         energy.setText("La energía a gastar es de: "+String.valueOf(energiaCalc)+" kcal");
