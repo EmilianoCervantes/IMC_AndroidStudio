@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">IMC</string>
+    <string name="nombre">Nombre:</string>
+    <string name="peso">Peso: 70.6</string>
+    <string name="altura">Altura: 1.8</string>
+    <string name="calcula">Calcula tu IMC</string>
+    <string name="tuimc">Tu IMC:</string>
+    <string name="recalcular">Recalcular</string>
+    <string name="bmipage">Abrir Página BMI</string>
+    <string name="share">Compartir</string>
+    <string name="imageimc">Imagen visual IMC</string>
+</resources>
