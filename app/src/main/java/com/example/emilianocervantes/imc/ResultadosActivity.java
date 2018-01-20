@@ -13,6 +13,8 @@ public class ResultadosActivity extends Activity {
     private TextView nombre, imc, ideal, energy;
     private ImageView imageView;
 
+    private boolean mujer = true;
+
     private final int REQUEST_CODE = 7007;
 
     @Override
@@ -28,6 +30,11 @@ public class ResultadosActivity extends Activity {
 
         //Intent de activity_main
         Persona p = (Persona)getIntent().getSerializableExtra("persona");
+        if(!p.sexo.equalsIgnoreCase("mujer")){
+            mujer = false;
+        } else {
+            mujer = true;
+        }
 
         calcular(p);
     }
@@ -58,7 +65,7 @@ public class ResultadosActivity extends Activity {
         ideal.setText("Tu peso ideal es de: "+String.valueOf(idealCalc)+" kg");
         energy.setText("La energía a gastar es de: "+String.valueOf(energiaCalc)+" kcal");
 
-        if(p.sexo.equalsIgnoreCase("mujer")){
+        if(mujer){
             if(imcCalc <= 17.5){
                 imageView.setImageResource(R.drawable.woman_bmi_17_5);
             } else if (imcCalc > 17.5 && imcCalc <= 18.5){
@@ -96,7 +103,7 @@ public class ResultadosActivity extends Activity {
         startActivity(intent);
     }
 
-    public void share(){
+    public void share(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_SUBJECT, "Message");
         intent.putExtra(Intent.EXTRA_TEXT, "Mi IMC es : "+imc.getText().toString());
